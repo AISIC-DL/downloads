@@ -74,7 +74,12 @@ const EVENT_HANDLER_MODE = getEventHandlerMode();
         EVENT_HANDLER_MODE + 'app.record.create.submit'
     ], async event => {
         const record = event.record;
-    
+
+        validation(event);
+        if (event.error) {
+            return event;
+        }
+
         return event;
     }); // create.submit
 
@@ -120,7 +125,12 @@ const EVENT_HANDLER_MODE = getEventHandlerMode();
         EVENT_HANDLER_MODE + 'app.record.edit.submit', 'app.record.index.edit.submit'
     ], async event => {
         const record = event.record;
-  
+
+        validation(event);
+        if (event.error) {
+            return event;
+        }
+
         return event;
     }); // edit.submit
 
